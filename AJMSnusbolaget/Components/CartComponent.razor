@@ -1,0 +1,44 @@
+﻿@using AJMSnusbolaget.Models
+
+<div class="cart-container">
+    <div class="cart-items">
+        @if (cartItems.Any())
+        {
+            @foreach (var item in cartItems)
+            {
+                <div class="cart-item">
+                    <div class="item-details">
+                        <h3>@item.Name</h3>
+                        <p>@item.brand</p>
+                        <p>@item.Quantity</p>
+                        <p class="price">@item.Price.ToString("C")</p>
+                    </div>
+                    <button class="btn btn-danger" @onclick="() => RemoveFromCart(item)">Ta bort</button>
+                </div>
+            }
+            <div class="cart-summary">
+                <h3>Totalt: @cartItems.Sum(i => i.Price).ToString("C")</h3>
+                <button class="btn btn-primary" @onclick="Checkout">Gå till kassan</button>
+            </div>
+        }
+        else
+        {
+            <p>Din varukorg är tom</p>
+            <a href="/shop" class="btn btn-primary">Fortsätt handla</a>
+        }
+    </div>
+</div>
+
+@code {
+    private List<Product> cartItems = new();
+
+    private void RemoveFromCart(Product item)
+    {
+        cartItems.Remove(item);
+    }
+
+    private void Checkout()
+    {
+        // Checkout logic will be added here
+    }
+}

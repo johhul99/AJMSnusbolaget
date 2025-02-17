@@ -1,0 +1,54 @@
+﻿@page "/Shop"
+@using AJMSnusbolaget.Models
+@using AJMSnusbolaget.Components
+@using Microsoft.AspNetCore.Components.Web
+@using AJMSnusbolaget.Services
+@using Microsoft.AspNetCore.Mvc.RazorPages
+
+@inject ApiService ApiService
+
+<div class="container">
+    <h1>AJM Snusbolag - Våra Produkter</h1>
+
+    <div class="search-bar">
+        <input type="text"
+        placeholder="Sök produkt..."
+        @bind-value="searchTerm"
+        @bind-value:event="oninput" />
+    </div>
+
+    <div class="product-grid">
+        @foreach (var product in FilteredProducts)
+        {
+            <ProductCard Product="product" OnAddToCartClick="AddToCart" />
+        }
+    </div>
+</div>
+
+@code {
+    private string searchTerm = "";
+
+    private List<Product> Products = new();
+
+    private IEnumerable<Product> FilteredProducts =>
+        Products.Where(p => string.IsNullOrEmpty(searchTerm) ||
+                           p.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Products = await ApiService.GetProductsAsync(); 
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fel vid hämtning av produkter: {ex.Message}");
+        }
+    }
+
+    private void AddToCart(Product product)
+    {
+        // Shopping cart functionality will be added here
+    }
+}

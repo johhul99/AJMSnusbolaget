@@ -1,0 +1,26 @@
+﻿@using AJMSnusbolaget.Models
+@using AJMSnusbolaget.Components
+
+<div class="product-card">
+    <div class="product-info">
+        <h3>@Product.Name</h3>
+        <p class="brand">@Product.brand</p>
+        <p class="price">@Product.Price SEK</p>
+        <button class="btn btn-primary" @onclick="OnAddToCart">
+            Lägg i varukorg
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Product Product { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Product> OnAddToCartClick { get; set; }
+
+    private async Task OnAddToCart()
+    {
+        await OnAddToCartClick.InvokeAsync(Product);
+    }
+}

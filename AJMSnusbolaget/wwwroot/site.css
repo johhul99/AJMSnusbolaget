@@ -1,0 +1,38 @@
+﻿.cart-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.price {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.btn-danger {
+    margin-left: 10px;
+}

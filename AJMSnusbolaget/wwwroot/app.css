@@ -1,0 +1,87 @@
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Images/snus-background.jpg');
+    
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding: 1.5rem;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+
+.cart-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar {
+    background: #1a1a1a;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background: #2c3e50;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background: #34495e;
+    }
+.page {
+    background-image: url('Images/laass.png');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.site-title {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
+    margin: 0;
+}
+
+
+.cart-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+    .cart-link:hover {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+    }
+
+.main-content {
+    padding: 2rem;
+    background: rgba(255,255,255,0.9);
+    margin: 2rem;
+    border-radius: 10px;
+}
